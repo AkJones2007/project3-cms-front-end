@@ -44,7 +44,20 @@ var blogRequest = {
       data: JSON.stringify(credentials),
       dataType: "json"
     }, ajaxCB);
+  },
+
+  delete : function(id, credentials, callback){
+    this.ajax({
+      method : "DELETE",
+      url: this.url + "/blogs/" + id,
+      xhrFields: {
+       withCredentials: true
+      },
+      contentType: "application/json; charset=utf-8",
+      dataType: "json"
+    }, ajaxCB);
   }
+
 }
 
 var ajaxCB = function (error, data) {
@@ -86,6 +99,12 @@ $(document).ready(function(){
     var credentials = formDataToObject(this);
     var id = $("#blog-id").val();
     blogRequest.update(id, credentials)
+  })
+
+  $("#delete-blog").on("click", function(event){
+    event.preventDefault();
+    var id = $("#blog-id").val();
+    blogRequest.delete(id);
   })
 
 
