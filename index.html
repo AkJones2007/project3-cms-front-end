@@ -77,19 +77,20 @@
   <!-- end of Pages -->
   <!-- Handlebar Templates -->
   <!-- Handlebars for Blogs-->
-  <div id = "show-all-blog" class = "">
-    <table id="showAllBlogTable" class = "">
+  <div id = "show-all-blog">
+    <table id="showAllBlogTable" class = "table">
       <thead>
         <th> Blog Title </th>
         <th> Blog Author </th>
         <th> Date </th>
       </thead>
       <tbody id = "showAllBlogTableBody">
-      <script id = "showAllBlogHandlebar" type = "text/x-handlebars-template"> {{#each blogs}}
+      <script id = "showAllBlogHandlebar" type = "text/x-handlebars-template">
+      {{#each blogs}}
         <tr>
-          <td>{{title}} </td>
-          <td>{{author}} </td>
-          <td>{{date}} </td>
+          <td>{{title}}</td>
+          <td>{{author}}</td>
+          <td>{{date}}</td>
           <td><button class="blogbutton" data-id={{_id}}> Show Blog </button> </td>
         </tr>
         {{/each}}

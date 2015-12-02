@@ -15,7 +15,7 @@ var blogRequest = {
       method : "GET",
       url: this.url + "/blogs",
       dataType: "json"
-    }, ajaxCB);
+    }, callback)
   },
 
   getOne : function(id){
@@ -93,14 +93,13 @@ var formDataToObject = function(form) {
   $("#list-blogs").on("click", function(event){
     event.preventDefault();
     blogRequest.getAll(function(error, data){
-      var newHTML = showAllBlogTemplate({blogs: data.blogs });
-       var view = function(){
 
-        $("#showAllBlogTableBody").html(newHTML);
-      };
-      view();
+      $('#result').val(JSON.stringify(data, null, 4));
+      console.log(data.blogs);
+      var newHTML = showAllBlogTemplate({blogs: data.blogs});
+      $("#showAllBlogTableBody").html(newHTML);
+
     });
-
   });
 
   $("#show-one-blog").on("submit", function(event){
