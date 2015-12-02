@@ -10,7 +10,7 @@ var blogRequest = {
     });
   }, // end of ajaxRequest
 
-  getAll : function(){
+  getAll : function(callback){
     this.ajax({
       method : "GET",
       url: this.url + "/blogs",
@@ -63,8 +63,7 @@ var blogRequest = {
       dataType: "json"
     }, ajaxCB);
   }
-
-}
+};
 
 var ajaxCB = function (error, data) {
     if (error) {
@@ -86,12 +85,22 @@ var formDataToObject = function(form) {
     return formDataObject;
   };
 
+  var data = {};
+ $(document).ready(function(){
 
-$(document).ready(function(){
+  var showAllBlogTemplate = Handlebars.compile($("#showAllBlogHandlebar").html());
 
   $("#list-blogs").on("click", function(event){
     event.preventDefault();
-    blogRequest.getAll();
+    blogRequest.getAll(function(error, data){
+      var newHTML = showAllBlogTemplate({blogs: data.blogs });
+       var view = function(){
+
+        $("#showAllBlogTableBody").html(newHTML);
+      };
+      view();
+    });
+
   });
 
   $("#show-one-blog").on("submit", function(event){
@@ -110,18 +119,12 @@ $(document).ready(function(){
     event.preventDefault();
     var credentials = formDataToObject(this);
     var id = $("#blog-id").val();
-    blogRequest.update(id, credentials)
-  })
+    blogRequest.update(id, credentials);
+  });
 
   $("#delete-blog").on("click", function(event){
     event.preventDefault();
     var id = $("#blog-id").val();
     blogRequest.delete(id);
-  })
-
-
-
-
-
-
-}) //end of document.ready
+  });
+}); //end of document.ready

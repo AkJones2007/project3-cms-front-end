@@ -45,10 +45,8 @@ var authRequest = {
       dataType: "json"
     }, callback);
   }
+};// end of authRequest
 
-
-
-} // end of authRequest
 var ajaxCB = function (error, data) {
     if (error) {
       console.error(error);
@@ -75,13 +73,13 @@ $(document).ready(function(){
     event.preventDefault();
     var credentials = formDataToObject(this);
     authRequest.register(credentials);
-  })
+  });
 
   $("#login").on("submit", function(event){
     event.preventDefault();
     var credentials = formDataToObject(this);
     authRequest.login(credentials);
-  })
+  });
 
 
 

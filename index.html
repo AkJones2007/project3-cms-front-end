@@ -5,6 +5,7 @@
 
   <!-- Assets -->
   <script src="assets/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="assets/handlebars.js" type="text/javascript" charset="utf-8"> </script>
   <script src="scripts/auth_requests.js" type="text/javascript" charset="utf-8"></script>
   <script src="scripts/blog_requests.js" type="text/javascript" charset="utf-8"></script>
   <script src="scripts/page_requests.js" type="text/javascript" charset="utf-8"></script>
@@ -49,7 +50,7 @@
     <input type="submit" value="Update Blog Post">
     <input id="delete-blog" name="delete" type="button" value="Delete Blog Post">
   </form>
-
+  <!-- End of Blog Forms -->
   <br>
   <!-- Page Forms -->
  <button id="list-pages" name="list" type="button">List Pages</button>
@@ -74,6 +75,34 @@
     <input id="delete-page" name="delete" type="button" value="Delete Page Post">
   </form>
   <!-- end of Pages -->
+  <!-- Handlebar Templates -->
+  <!-- Handlebars for Blogs-->
+  <div id = "show-all-blog" class = "">
+    <table id="showAllBlogTable" class = "">
+      <thead>
+        <th> Blog Title </th>
+        <th> Blog Author </th>
+        <th> Date </th>
+      </thead>
+      <tbody id = "showAllBlogTableBody">
+      <script id = "showAllBlogHandlebar" type = "text/x-handlebars-template"> {{#each blogs}}
+        <tr>
+          <td>{{title}} </td>
+          <td>{{author}} </td>
+          <td>{{date}} </td>
+          <td><button class="blogbutton" data-id={{_id}}> Show Blog </button> </td>
+        </tr>
+        {{/each}}
+        </script>
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <!-- Handlebars for Pages-->
+  <div >
+  </div>
 
   <br>
   <label for="result">Result</label>
