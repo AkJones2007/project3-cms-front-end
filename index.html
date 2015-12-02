@@ -26,14 +26,14 @@
   </form>
 
   <br>
-  <form id="blog" class="forms">
-    <!-- <input name="id" type="text" placeholder="Blog ID">
-    <input name="title" type="text" placeholder="Blog Title"> -->
-    <!-- <textarea name="content" placeholder="Blog Content"></textarea> -->
-    <input id="list-blogs" name="list" type="button" value="List Blog Posts">
-    <!-- <input name="create" type="button" value="Create Post"> -->
-<!--     <input name="update" type="button" value="Update Post"> -->
-    <!-- <input name="delete" type="button" value="Delete Post"> -->
+  <!-- Blog Forms -->
+
+  <button id="list-blogs" name="list" type="button">List Blog Posts</button>
+
+  <form id="show-one-blog">
+  <input id = "one-blog-view" class = "input" name = "id" type = "text" placeholder = "View
+  One Blog">
+  <input type = "submit" value = "Show One Blog">
   </form>
 
   <form id="create-blog">
@@ -51,15 +51,29 @@
   </form>
 
   <br>
-  <form id="page" class="forms">
-    <input name="id" type="text" placeholder="Page ID">
-    <input name="title" type="text" placeholder="Page Title">
-    <textarea name="content" placeholder="Page Content"></textarea>
-    <input name="list" type="button" value="List Pages">
-    <input name="create" type="button" value="Create Page">
-    <input name="update" type="button" value="Update Page">
-    <input name="delete" type="button" value="Delete Page">
+  <!-- Page Forms -->
+ <button id="list-pages" name="list" type="button">List Pages</button>
+
+  <form id="show-one-page">
+  <input id = "one-page-view" class = "input" name = "id" type = "text" placeholder = "View
+  One Page">
+  <input type = "submit" value = "Show One Page">
   </form>
+
+  <form id="create-page">
+    <input class="input" name="title" type="text" placeholder="Page Title">
+    <textarea class="input" name="content" placeholder="Page Content"></textarea>
+    <input type="submit" value="Create Page">
+  </form>
+
+  <form id="update-page">
+    <input class="input" name="title" type="text" placeholder="Page Title">
+    <textarea class="input" name="content" placeholder="Page Content"></textarea>
+    <input id="page-id" class="input" name="id" type="text" placeholder="Page ID">
+    <input type="submit" value="Update Page">
+    <input id="delete-page" name="delete" type="button" value="Delete Page Post">
+  </form>
+  <!-- end of Pages -->
 
   <br>
   <label for="result">Result</label>

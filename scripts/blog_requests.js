@@ -18,7 +18,13 @@ var blogRequest = {
     }, ajaxCB);
   },
 
-  // getOne : function(){}
+  getOne : function(id){
+    this.ajax({
+      method: "GET",
+      url: this.url + "/blogs/" + id,
+      dataType: "json"
+    }, ajaxCB);
+  },
 
   create : function(credentials, callback){
     this.ajax({
@@ -86,6 +92,12 @@ $(document).ready(function(){
   $("#list-blogs").on("click", function(event){
     event.preventDefault();
     blogRequest.getAll();
+  });
+
+  $("#show-one-blog").on("submit", function(event){
+    event.preventDefault();
+    var id = $("#one-blog-view").val();
+    blogRequest.getOne(id);
   });
 
   $("#create-blog").on("submit", function(event){
