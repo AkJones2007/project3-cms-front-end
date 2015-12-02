@@ -14,6 +14,9 @@ var authRequest = {
     this.ajaxRequest({
       method: "POST",
       url: this.url + "/signup",
+      xhrFields: {
+       withCredentials: true
+      },
       contentType: "application/json; charset=utf-8",
       data: JSON.stringify(credentials),
       dataType: "json"
