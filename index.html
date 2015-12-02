@@ -5,32 +5,48 @@
 
   <!-- Assets -->
   <script src="assets/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="scripts/auth_requests.js" type="text/javascript" charset="utf-8"></script>
+  <script src="scripts/blog_requests.js" type="text/javascript" charset="utf-8"></script>
+  <script src="scripts/page_requests.js" type="text/javascript" charset="utf-8"></script>
 
 </head>
 <body>
 
   <form id="register" class="forms">
-    <input name="username" type="text" placeholder="username">
-    <input name="password" type="password" placeholder="password">
-    <input name="register" type="submit" value="Register">
+    <input class="input" name="username" type="text" placeholder="username">
+    <input class="input" name="password" type="password" placeholder="password">
+    <input class="input" name="register" type="submit" value="Register">
   </form>
 
   <br>
   <form id="login" class="forms">
-    <input name="username" type="text" placeholder="username">
-    <input name="password" type="password" placeholder="password">
-    <input name="login" type="submit" value="Login">
+    <input class="input" name="username" type="text" placeholder="username">
+    <input class="input" name="password" type="password" placeholder="password">
+    <input class="input" name="login" type="submit" value="Login">
   </form>
 
   <br>
   <form id="blog" class="forms">
-    <input name="id" type="text" placeholder="Blog ID">
-    <input name="title" type="text" placeholder="Blog Title">
-    <textarea name="content" placeholder="Blog Content"></textarea>
-    <input name="list" type="button" value="List Blog Posts">
-    <input name="create" type="button" value="Create Post">
-    <input name="update" type="button" value="Update Post">
+    <!-- <input name="id" type="text" placeholder="Blog ID">
+    <input name="title" type="text" placeholder="Blog Title"> -->
+    <!-- <textarea name="content" placeholder="Blog Content"></textarea> -->
+    <input id="list-blogs" name="list" type="button" value="List Blog Posts">
+    <!-- <input name="create" type="button" value="Create Post"> -->
+<!--     <input name="update" type="button" value="Update Post"> -->
     <input name="delete" type="button" value="Delete Post">
+  </form>
+
+  <form id="create-blog">
+    <input class="input" name="title" type="text" placeholder="Blog Title">
+    <textarea class="input" name="content" placeholder="Blog Content"></textarea>
+    <input type="submit" value="Create Blog Post">
+  </form>
+
+  <form id="update-blog">
+    <input class="input" name="title" type="text" placeholder="Blog Title">
+    <textarea class="input" name="content" placeholder="Blog Content"></textarea>
+    <input id="blog-id" class="input" name="id" type="text" placeholder="Blog ID">
+    <input type="submit" value="Update Post">
   </form>
 
   <br>
