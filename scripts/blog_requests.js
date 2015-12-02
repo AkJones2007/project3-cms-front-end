@@ -18,12 +18,12 @@ var blogRequest = {
     }, callback)
   },
 
-  getOne : function(id){
+  getOne : function(id, callback){
     this.ajax({
       method: "GET",
       url: this.url + "/blogs/" + id,
       dataType: "json"
-    }, ajaxCB);
+    }, callback);
   },
 
   create : function(credentials, callback){
@@ -85,28 +85,43 @@ var formDataToObject = function(form) {
     return formDataObject;
   };
 
-  var data = {};
  $(document).ready(function(){
 
-  var showAllBlogTemplate = Handlebars.compile($("#showAllBlogHandlebar").html());
+
 
   $("#list-blogs").on("click", function(event){
     event.preventDefault();
     blogRequest.getAll(function(error, data){
-
-      $('#result').val(JSON.stringify(data, null, 4));
-      console.log(data.blogs);
-      var newHTML = showAllBlogTemplate({blogs: data.blogs});
+    $("#showAllBlogTableBody").empty();
+    $("#one-blog").hide();
+    var template = Handlebars.compile($("#showAllBlogHandlebar").html());
+      $('#result').val(JSON.stringify(data, null, 4)); //logs to test box
+      var newHTML = template({blogs: data.blogs});
       $("#showAllBlogTableBody").html(newHTML);
 
     });
   });
 
-  $("#show-one-blog").on("submit", function(event){
+
+
+  $("#showAllBlogTableBody").on("click", function(event){
     event.preventDefault();
-    var id = $("#one-blog-view").val();
-    blogRequest.getOne(id);
+    var id = $(event.target).data("id");
+    if(id === undefined){
+      return;
+    }
+    blogRequest.getOne(id, function(error, data){
+      $("#one-blog").empty();
+      $("#one-blog").show();
+      var template = Handlebars.compile($("#show-one").html());
+      $('#result').val(JSON.stringify(data, null, 4)); //logs to test box
+      console.log(data.blogs);
+      var newHTML = template(data.blogs);
+      $("#one-blog").html(newHTML);
+    });
   });
+
+
 
   $("#create-blog").on("submit", function(event){
     event.preventDefault();

@@ -4,11 +4,14 @@
   <title></title>
 
   <!-- Assets -->
+
   <script src="assets/jquery.js" type="text/javascript" charset="utf-8"></script>
   <script src="assets/handlebars.js" type="text/javascript" charset="utf-8"> </script>
   <script src="scripts/auth_requests.js" type="text/javascript" charset="utf-8"></script>
   <script src="scripts/blog_requests.js" type="text/javascript" charset="utf-8"></script>
   <script src="scripts/page_requests.js" type="text/javascript" charset="utf-8"></script>
+
+  <link rel="stylesheet" type="text/css" href="styles/index.css">
 
 </head>
 <body>
@@ -31,11 +34,6 @@
 
   <button id="list-blogs" name="list" type="button">List Blog Posts</button>
 
-  <form id="show-one-blog">
-  <input id = "one-blog-view" class = "input" name = "id" type = "text" placeholder = "View
-  One Blog">
-  <input type = "submit" value = "Show One Blog">
-  </form>
 
   <form id="create-blog">
     <input class="input" name="title" type="text" placeholder="Blog Title">
@@ -85,21 +83,38 @@
         <th> Date </th>
       </thead>
       <tbody id = "showAllBlogTableBody">
-      <script id = "showAllBlogHandlebar" type = "text/x-handlebars-template">
+      </tbody>
+    </table>
+
+    <script id = "showAllBlogHandlebar" type = "text/x-handlebars-template">
       {{#each blogs}}
         <tr>
           <td>{{title}}</td>
           <td>{{author}}</td>
           <td>{{date}}</td>
-          <td><button class="blogbutton" data-id={{_id}}> Show Blog </button> </td>
+          <td><button class="show-blog-button" data-id={{_id}}> Show Blog </button> </td>
         </tr>
-        {{/each}}
-        </script>
-      </tbody>
-    </table>
+      {{/each}}
+    </script>
 
   </div>
 
+<!-- __________________DIV FOR ONE BLOG__________________ -->
+
+<div id="one-blog" class="overlay">
+</div>
+
+  <script id="show-one" type = "text/x-handlebars-template">
+    <h2>{{title}}</h2>
+    <h3>{{content}}</h3>
+    <h6>{{date}}</h6>
+    <button data-id={{_id}}>Edit</button>
+    <button data-id={{_id}}>Delete</button>
+  </script>
+
+
+
+<!-- ____________________END OF BLOG DIV____________________ -->
 
   <!-- Handlebars for Pages-->
   <div >

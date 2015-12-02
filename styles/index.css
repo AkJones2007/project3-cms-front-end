@@ -1,0 +1,10 @@
+body{
+  position: relative;
+  margin: auto;
+}
+
+.overlay{
+  background-color: blue;
+  width: 80%;
+  min-height: 100%;
+}
