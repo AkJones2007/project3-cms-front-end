@@ -49,7 +49,7 @@ var blogRequest = {
       contentType: "application/json; charset=utf-8",
       data: JSON.stringify(credentials),
       dataType: "json"
-    }, ajaxCB);
+    }, callback);
   },
 
   delete : function(id, callback){
@@ -130,11 +130,21 @@ var formDataToObject = function(form) {
     blogRequest.create(credentials);
   });
 
+  // CLick on Edit Button
+  $("#one-blog").on("click", '#edit-blog', function(event){
+    event.preventDefault();
+    $("#update-blog-div").show();
+  });
+
+
   $("#update-blog").on("submit", function(event){
     event.preventDefault();
     var credentials = formDataToObject(this);
-    var id = $("#blog-id").val();
-    blogRequest.update(id, credentials);
+    var id = $("#edit-blog").data("id");
+    blogRequest.update(id, credentials, function(error, data){
+      $("#one-blog").empty();
+      $("#entire-body").show();
+    });
   });
 
   $("#one-blog").on("click", '#delete-blog', function(event){

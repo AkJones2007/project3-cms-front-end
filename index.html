@@ -7,11 +7,13 @@
 
   <script src="assets/jquery.js" type="text/javascript" charset="utf-8"></script>
   <script src="assets/handlebars.js" type="text/javascript" charset="utf-8"> </script>
+  <script src="scripts/ux_control.js" type="text/javascript" charset="utf-8"></script>
   <script src="scripts/auth_requests.js" type="text/javascript" charset="utf-8"></script>
   <script src="scripts/blog_requests.js" type="text/javascript" charset="utf-8"></script>
   <script src="scripts/page_requests.js" type="text/javascript" charset="utf-8"></script>
 
   <link rel="stylesheet" type="text/css" href="styles/index.css">
+  <link rel="stylesheet" type="text/css" href="assets/bootstrap.css">
 
 </head>
 <body>
@@ -42,12 +44,7 @@
     <input type="submit" value="Create Blog Post">
   </form>
 
-  <form id="update-blog">
-    <input class="input" name="title" type="text" placeholder="Blog Title">
-    <textarea class="input" name="content" placeholder="Blog Content"></textarea>
-    <input id="blog-id" class="input" name="id" type="text" placeholder="Blog ID">
-    <input type="submit" value="Update Blog Post">
-  </form>
+
   <!-- End of Blog Forms -->
   <br>
   <!-- Page Forms -->
@@ -109,11 +106,17 @@
     <h2>{{title}}</h2>
     <h3>{{content}}</h3>
     <h6>{{date}}</h6>
-    <button data-id={{_id}}>Edit</button>
+    <button id="edit-blog" data-id={{_id}}>Edit</button>
     <button id="delete-blog" data-id={{_id}}>Delete</button>
   </script>
 
-
+  <div id="update-blog-div">
+    <form id="update-blog">
+      <input class="input" name="title" type="text" placeholder="Blog Title">
+      <textarea class="input" name="content" placeholder="Blog Content"></textarea>
+      <input type="submit" value="Update Blog Post">
+    </form>
+  </div>
 
 <!-- ____________________END OF BLOG DIV____________________ -->
 
