@@ -16,6 +16,7 @@
 </head>
 <body>
 
+<div id="entire-body">
   <form id="register" class="forms">
     <input class="input" name="username" type="text" placeholder="username">
     <input class="input" name="password" type="password" placeholder="password">
@@ -46,7 +47,6 @@
     <textarea class="input" name="content" placeholder="Blog Content"></textarea>
     <input id="blog-id" class="input" name="id" type="text" placeholder="Blog ID">
     <input type="submit" value="Update Blog Post">
-    <input id="delete-blog" name="delete" type="button" value="Delete Blog Post">
   </form>
   <!-- End of Blog Forms -->
   <br>
@@ -98,6 +98,7 @@
     </script>
 
   </div>
+</div>
 
 <!-- __________________DIV FOR ONE BLOG__________________ -->
 
@@ -109,7 +110,7 @@
     <h3>{{content}}</h3>
     <h6>{{date}}</h6>
     <button data-id={{_id}}>Edit</button>
-    <button data-id={{_id}}>Delete</button>
+    <button id="delete-blog" data-id={{_id}}>Delete</button>
   </script>
 
 

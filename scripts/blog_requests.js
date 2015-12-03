@@ -52,7 +52,7 @@ var blogRequest = {
     }, ajaxCB);
   },
 
-  delete : function(id, credentials, callback){
+  delete : function(id, callback){
     this.ajax({
       method : "DELETE",
       url: this.url + "/blogs/" + id,
@@ -61,7 +61,7 @@ var blogRequest = {
       },
       contentType: "application/json; charset=utf-8",
       dataType: "json"
-    }, ajaxCB);
+    }, callback);
   }
 };
 
@@ -112,6 +112,7 @@ var formDataToObject = function(form) {
     }
     blogRequest.getOne(id, function(error, data){
       $("#one-blog").empty();
+      $("#entire-body").hide();
       $("#one-blog").show();
       var template = Handlebars.compile($("#show-one").html());
       $('#result').val(JSON.stringify(data, null, 4)); //logs to test box
@@ -136,9 +137,15 @@ var formDataToObject = function(form) {
     blogRequest.update(id, credentials);
   });
 
-  $("#delete-blog").on("click", function(event){
+  $("#one-blog").on("click", '#delete-blog', function(event){
     event.preventDefault();
-    var id = $("#blog-id").val();
-    blogRequest.delete(id);
+    console.log($(this).data("id"));
+    var id = $(this).data("id");
+    blogRequest.delete(id, function(){
+
+      $("#one-blog").empty();
+      $("entire-body").show();
+    });
   });
+
 }); //end of document.ready
