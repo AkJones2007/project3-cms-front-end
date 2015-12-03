@@ -92,6 +92,7 @@ var formDataToObject = function(form) {
   $("#list-blogs").on("click", function(event){
     event.preventDefault();
     blogRequest.getAll(function(error, data){
+    $("#display-pages-table").hide();
     $("#showAllBlogTableBody").empty();
     $("#display-blogs-table").show();
     $("#one-blog").hide();

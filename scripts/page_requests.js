@@ -90,6 +90,7 @@ var formDataToObject = function(form) {
   $("#list-pages").on("click", function(event){
     event.preventDefault();
     pageRequest.getAll(function(error, data){
+    $("#display-blogs-table").hide();
     $("#showAllPageTableBody").empty();
     $("#display-pages-table").show();
     $("#one-page").hide();
