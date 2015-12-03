@@ -167,14 +167,15 @@ nav.navbar-default {
 #create-blog {
   float: left;
   width: 40%;
-  padding: 0 25px;
+  margin-left: 20px;
 }
 
 #show-all-blog {
-  float: right;
-  width: 60%;
+  float: left;
+  width: 55%;
   background-color: white;
   padding: 0 20px;
+  margin-left: 20px;
 }
 
 #create-blog > input[type="text"] {
@@ -185,6 +186,11 @@ nav.navbar-default {
   padding: 5px;
 }
 
+#create-blog > input[type="text"]:focus {
+  border: 2px solid #FF6140;
+  outline: none;
+}
+
 #create-blog > textarea {
   display: block;
   width: 100%;
@@ -192,6 +198,11 @@ nav.navbar-default {
   height: 400px;
   margin-bottom: 10px;
   padding: 5px;
+}
+
+#create-blog > textarea:focus {
+  border: 2px solid #FF6140;
+  outline: none;
 }
 
 #display-blogs-table {
