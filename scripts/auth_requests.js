@@ -1,6 +1,6 @@
 var authRequest = {
 
-  url : "http://localhost:3000",
+  url : "https://aqueous-oasis-2361.herokuapp.com/",
 
   ajaxRequest : function(options, cb) {
     $.ajax(options).done(function(data, textStatus, jqxhr) {

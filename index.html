@@ -13,9 +13,13 @@
   <script src="scripts/blog_requests.js" type="text/javascript" charset="utf-8"></script>
   <script src="scripts/page_requests.js" type="text/javascript" charset="utf-8"></script>
 
-  <link rel="stylesheet" type="text/css" href="styles/index.css">
   <link rel="stylesheet" type="text/css" href="assets/bootstrap.css">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="styles/index.css">
+
+  <!-- Load Google Fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lobster+Two:400italic' rel='stylesheet' type='text/css'>
 
 
 <!-- _________START OF BOOTSTRAP NAVBAR______________ -->
@@ -29,8 +33,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <span id="navbar-brand">CONTENT MANAGEMENT SYSTEM</span>
-      <br>
+      <span id="navbar-brand">Awesome CMS</span>
       <h4 id="welcome-message"></h4>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -174,24 +177,24 @@
 <!-- ___________END OF HANDLEBARS BLOG TABLE_____________ -->
 <!-- __________________DIV FOR ONE BLOG__________________ -->
 
-<div id="one-blog" class="container-fluid">
-</div>
-
-  <script id="show-one" type = "text/x-handlebars-template">
-    <h2>{{title}}</h2>
-    <h3>{{content}}</h3>
-    <h6>{{date}}</h6>
-    <button id="edit-blog" class="admin-button" data-id={{_id}}>Edit</button>
-    <button id="delete-blog" class="admin-button" data-id={{_id}}>Delete</button>
-  </script>
-
-  <div id="update-blog-div">
+<div id="update-blog-div">
     <form id="update-blog">
       <input class="input" name="title" type="text" placeholder="Blog Title">
       <textarea class="input" name="content" placeholder="Blog Content"></textarea>
       <input type="submit" value="Update Blog Post">
     </form>
   </div>
+
+<div id="one-blog" class="container-fluid">
+</div>
+
+  <script id="show-one" type = "text/x-handlebars-template">
+    <h2>{{title}}</h2>
+    <p>{{content}}</p>
+    <h6>{{date}}</h6>
+    <button id="edit-blog" class="admin-button" data-id={{_id}}>Edit</button>
+    <button id="delete-blog" class="admin-button" data-id={{_id}}>Delete</button>
+  </script>
 
 <!-- ____________________END OF BLOG DIV____________________ -->
 
@@ -230,16 +233,6 @@
 <!-- ___________END OF HANDLEBARS PAGE TABLE_____________ -->
 <!-- __________________DIV FOR ONE PAGE__________________ -->
 
-<div id="one-page" class="container-fluid">
-</div>
-
-  <script id="show-one-page" type = "text/x-handlebars-template">
-    <h2>{{title}}</h2>
-    <h3>{{content}}</h3>
-    <button id="edit-page" class="admin-button" data-id={{_id}}>Edit</button>
-    <button id="delete-page" class="admin-button" data-id={{_id}}>Delete</button>
-  </script>
-
   <div id="update-page-div">
     <form id="update-page">
       <input class="input" name="title" type="text" placeholder="Page Title">
@@ -247,13 +240,18 @@
       <input type="submit" value="Update Page">
     </form>
   </div>
+
+  <div id="one-page" class="container-fluid">
+  </div>
+
+  <script id="show-one-page" type = "text/x-handlebars-template">
+    <h2>{{title}}</h2>
+    <hr>
+    <p>{{content}}</p>
+    <button id="edit-page" class="admin-button" data-id={{_id}}>Edit</button>
+    <button id="delete-page" class="admin-button" data-id={{_id}}>Delete</button>
+  </script>
 <!-- ____________________END OF Page DIV____________________ -->
-
-
-<div id="result-testing">
-  <label for="result">Result</label>
-  <textarea id="result"></textarea>
-</div>
 
 </body>
 </html>
