@@ -234,8 +234,16 @@
 <!-- ___________END OF HANDLEBARS PAGE TABLE_____________ -->
 <!-- __________________DIV FOR ONE PAGE__________________ -->
 
-<div id="one-page" class="container-fluid">
-</div>
+  <div id="update-page-div">
+    <form id="update-page">
+      <input class="input" name="title" type="text" placeholder="Page Title">
+      <textarea class="input" name="content" placeholder="Page Content"></textarea>
+      <input type="submit" value="Update Page">
+    </form>
+  </div>
+
+  <div id="one-page" class="container-fluid">
+  </div>
 
   <script id="show-one-page" type = "text/x-handlebars-template">
     <h2>{{title}}</h2>
@@ -244,14 +252,6 @@
     <button id="edit-page" class="admin-button" data-id={{_id}}>Edit</button>
     <button id="delete-page" class="admin-button" data-id={{_id}}>Delete</button>
   </script>
-
-  <div id="update-page-div">
-    <form id="update-page">
-      <input class="input" name="title" type="text" placeholder="Page Title">
-      <textarea class="input" name="content" placeholder="Page Content"></textarea>
-      <input type="submit" value="Update Page">
-    </form>
-  </div>
 <!-- ____________________END OF Page DIV____________________ -->
 
 
