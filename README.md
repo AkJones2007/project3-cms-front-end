@@ -130,7 +130,7 @@
 
 <h2> Wireframes </h2>
 <p>
-![CMS Wireframe][Project_3_wireframes.png]</p>
+![CMS Wireframe](Project_3_wireframes.png)</p>
 
 <p><h3>Deployed front-end app:</h3> </p>
 
