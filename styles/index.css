@@ -14,6 +14,28 @@
   clear: both;
 }
 
+nav.navbar-default {
+  background-color: #4267B3;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: white;
+}
+
+.navbar-default .navbar-nav > .dropdown > a .caret {
+  border-bottom-color: white;
+  border-top-color: white;
+}
+
+#navbar-brand {
+  font-family: 'Lobster Two', cursive;
+  font-style: italic;
+  color: white;
+  font-size: 2.5em;
+  text-shadow: 2px 2px rgba(0, 0, 0, .5);
+}
+
+
 /*____BOOTSTRAP SIDEBAR_____*/
 body,html{
     height: 100%;
@@ -133,5 +155,4 @@ body,html{
   section{
     padding-left: 15px;
   }
-
 
