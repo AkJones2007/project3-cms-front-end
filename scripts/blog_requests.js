@@ -36,7 +36,7 @@ var blogRequest = {
       contentType: "application/json; charset=utf-8",
       data: JSON.stringify(credentials),
       dataType: "json"
-    }, ajaxCB);
+    }, callback);
   },
 
   update : function(id, credentials, callback){
@@ -93,6 +93,7 @@ var formDataToObject = function(form) {
     event.preventDefault();
     blogRequest.getAll(function(error, data){
     $("#showAllBlogTableBody").empty();
+    $("#display-blogs-table").show();
     $("#one-blog").hide();
     var template = Handlebars.compile($("#showAllBlogHandlebar").html());
       $('#result').val(JSON.stringify(data, null, 4)); //logs to test box
@@ -112,11 +113,10 @@ var formDataToObject = function(form) {
     }
     blogRequest.getOne(id, function(error, data){
       $("#one-blog").empty();
-      $("#entire-body").hide();
+      $("#display-blogs-table").hide();
       $("#one-blog").show();
       var template = Handlebars.compile($("#show-one").html());
       $('#result').val(JSON.stringify(data, null, 4)); //logs to test box
-      console.log(data.blogs);
       var newHTML = template(data.blogs);
       $("#one-blog").html(newHTML);
     });
@@ -127,7 +127,17 @@ var formDataToObject = function(form) {
   $("#create-blog").on("submit", function(event){
     event.preventDefault();
     var credentials = formDataToObject(this);
-    blogRequest.create(credentials);
+    blogRequest.create(credentials, function(error, data){
+    blogRequest.getAll(function(error, data){
+      $("#showAllBlogTableBody").empty();
+      $("#display-blogs-table").show();
+      $("#one-blog").hide();
+      var template = Handlebars.compile($("#showAllBlogHandlebar").html());
+      $('#result').val(JSON.stringify(data, null, 4)); //logs to test box
+      var newHTML = template({blogs: data.blogs});
+      $("#showAllBlogTableBody").html(newHTML);
+      });
+    });
   });
 
   // CLick on Edit Button in single blog post
@@ -143,7 +153,17 @@ var formDataToObject = function(form) {
     var id = $("#edit-blog").data("id");
     blogRequest.update(id, credentials, function(error, data){
       $("#one-blog").empty();
+      $("#update-blog-div").hide();
       $("#entire-body").show();
+      blogRequest.getAll(function(error, data){
+        $("#showAllBlogTableBody").empty();
+        $("#display-blogs-table").show();
+        $("#one-blog").hide();
+        var template = Handlebars.compile($("#showAllBlogHandlebar").html());
+        $('#result').val(JSON.stringify(data, null, 4)); //logs to test box
+        var newHTML = template({blogs: data.blogs});
+        $("#showAllBlogTableBody").html(newHTML);
+      });
     });
   });
 
@@ -153,10 +173,19 @@ var formDataToObject = function(form) {
     console.log($(this).data("id"));
     var id = $(this).data("id");
     blogRequest.delete(id, function(){
-
       $("#one-blog").empty();
       $("#entire-body").show();
+      blogRequest.getAll(function(error, data){
+    $("#showAllBlogTableBody").empty();
+    $("#display-blogs-table").show();
+    $("#one-blog").hide();
+    var template = Handlebars.compile($("#showAllBlogHandlebar").html());
+      $('#result').val(JSON.stringify(data, null, 4)); //logs to test box
+      var newHTML = template({blogs: data.blogs});
+      $("#showAllBlogTableBody").html(newHTML);
+      });
     });
   });
+
 
 }); //end of document.ready

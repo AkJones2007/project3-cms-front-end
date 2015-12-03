@@ -15,6 +15,7 @@
 
   <link rel="stylesheet" type="text/css" href="styles/index.css">
   <link rel="stylesheet" type="text/css" href="assets/bootstrap.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
 
 <!-- _________START OF BOOTSTRAP NAVBAR______________ -->
@@ -45,6 +46,7 @@
                 <div class="form-group">
                   <input class="form-control input" name="password" type="password" placeholder="password">
                 </div>
+                <li class="divider"></li>
                 <div class="form-group">
                   <input class="btn btn-success" name="register" type="submit" value="Register">
                 </div>
@@ -64,6 +66,7 @@
                 <div class="form-group">
                   <input class="form-control input" name="password" type="password"  placeholder="password">
                 </div>
+                <li class="divider"></li>
                 <div class="form-group">
                   <input  class="btn btn-success" name="login" type="submit" value="Login">
                 </div>
@@ -71,53 +74,94 @@
             </div>
         </ul>
       </li>
-
-    </div>   <!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+  </div>
 </nav>
 
 
 
 
-<!-- _____________END OF BOOTSTRAP NAVBAR______________ -->
+<!-- _____________END OF BOOTSTRAP NAVBAR______________-->
 
 
 </head>
 <body>
 
-<div id="entire-body">
+<!-- __________________START OF BOOTSTRAP SIDEBAR_________________ -->
+
+<nav class="navbar navbar-default sidebar" role="navigation">
+    <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <!-- <li class="active"><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li> -->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Register <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
+          <ul class="dropdown-menu forAnimate" role="menu">
+            <div id="registration-div">
+              <form id="register" class="form-inline">
+                <div class="form-group">
+                  <input  class="form-control input"name="username" type="text" placeholder="username">
+                </div>
+                <div class="form-group">
+                  <input class="form-control input" name="password" type="password" placeholder="password">
+                </div>
+              <li class="divider"></li>
+              <div class="form-group">
+                  <input class="btn btn-success" name="register" type="submit" value="Register">
+                </div>
+              </form>
+            </div>
+
+          </ul>
+        </li>
+        <li ><a id="list-blogs" href="#">Blog Posts<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-comment"></span></a></li>
+
+        <li ><a id="list-pages" href="#">Pages<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tasks"></span></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<!-- ____________END OF BOOTSTRAP SIDEBAR____________________ -->
+
 <!--   <form id="register" class="forms">
     <input class="input" name="username" type="text" placeholder="username">
     <input class="input" name="password" type="password" placeholder="password">
     <input class="input" name="register" type="submit" value="Register">
   </form> -->
-
-  <br>
 <!--   <form id="login" class="forms">
     <input class="input" name="username" type="text" placeholder="username">
     <input class="input" name="password" type="password" placeholder="password">
     <input class="input" name="login" type="submit" value="Login">
   </form> -->
 
-  <br>
   <!-- Blog Forms -->
 
-  <button id="list-blogs" name="list" type="button">List Blog Posts</button>
 
 
-  <form id="create-blog">
-    <input class="input" name="title" type="text" placeholder="Blog Title">
-    <textarea class="input" name="content" placeholder="Blog Content"></textarea>
-    <input type="submit" value="Create Blog Post">
-  </form>
+<!-- ___________LIST BLOG POSTS BUTTON__________ -->
+<!--   <button id="list-blogs" name="list" type="button">List Blog Posts</button> -->
+
 
 
   <!-- End of Blog Forms -->
-  <br>
   <!-- Page Forms -->
- <button id="list-pages" name="list" type="button">List Pages</button>
+ <!-- <button id="list-pages" name="list" type="button">List Pages</button> -->
 
-  <form id="show-one-page">
+
+
+
+<!--   <form id="show-one-page">
   <input id = "one-page-view" class = "input" name = "id" type = "text" placeholder = "View
   One Page">
   <input type = "submit" value = "Show One Page">
@@ -135,12 +179,29 @@
     <input id="page-id" class="input" name="id" type="text" placeholder="Page ID">
     <input type="submit" value="Update Page">
     <input id="delete-page" name="delete" type="button" value="Delete Page Post">
-  </form>
+  </form> -->
   <!-- end of Pages -->
+
+
+
+
+
+
   <!-- Handlebar Templates -->
-  <!-- Handlebars for Blogs-->
+
+
+
+  <!-- ________HANDLEBARS BLOGS TABLE _________-->
+
+<div id="display-blogs-table">
+  <form id="create-blog">
+    <input class="input" name="title" type="text" placeholder="Blog Title">
+    <textarea class="input" name="content" placeholder="Blog Content"></textarea>
+    <input type="submit" value="Create Blog Post">
+  </form>
+
   <div id = "show-all-blog">
-    <table id="showAllBlogTable" class = "table">
+    <table id="showAllBlogTable" class = "table table-hover">
       <thead>
         <th> Blog Title </th>
         <th> Blog Author </th>
@@ -164,9 +225,10 @@
   </div>
 </div>
 
+<!-- ___________END OF HANDLEBARS BLOG TABLE_____________ -->
 <!-- __________________DIV FOR ONE BLOG__________________ -->
 
-<div id="one-blog" class="overlay">
+<div id="one-blog" class="container-fluid">
 </div>
 
   <script id="show-one" type = "text/x-handlebars-template">
@@ -177,7 +239,7 @@
     <button id="delete-blog" data-id={{_id}}>Delete</button>
   </script>
 
-  <div id="update-blog-div"
+  <div id="update-blog-div">
     <form id="update-blog">
       <input class="input" name="title" type="text" placeholder="Blog Title">
       <textarea class="input" name="content" placeholder="Blog Content"></textarea>
@@ -187,14 +249,11 @@
 
 <!-- ____________________END OF BLOG DIV____________________ -->
 
-  <!-- Handlebars for Pages-->
-  <div >
-  </div>
 
-  <br>
+<div id="result-testing">
   <label for="result">Result</label>
   <textarea id="result"></textarea>
-
+</div>
 
 </body>
 </html>
