@@ -34,7 +34,6 @@
         <span class="icon-bar"></span>
       </button>
       <span id="navbar-brand">Awesome CMS</span>
-      <br>
       <h4 id="welcome-message"></h4>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -178,6 +177,14 @@
 <!-- ___________END OF HANDLEBARS BLOG TABLE_____________ -->
 <!-- __________________DIV FOR ONE BLOG__________________ -->
 
+<div id="update-blog-div">
+    <form id="update-blog">
+      <input class="input" name="title" type="text" placeholder="Blog Title">
+      <textarea class="input" name="content" placeholder="Blog Content"></textarea>
+      <input type="submit" value="Update Blog Post">
+    </form>
+  </div>
+
 <div id="one-blog" class="container-fluid">
 </div>
 
@@ -188,14 +195,6 @@
     <button id="edit-blog" class="admin-button" data-id={{_id}}>Edit</button>
     <button id="delete-blog" class="admin-button" data-id={{_id}}>Delete</button>
   </script>
-
-  <div id="update-blog-div">
-    <form id="update-blog">
-      <input class="input" name="title" type="text" placeholder="Blog Title">
-      <textarea class="input" name="content" placeholder="Blog Content"></textarea>
-      <input type="submit" value="Update Blog Post">
-    </form>
-  </div>
 
 <!-- ____________________END OF BLOG DIV____________________ -->
 
