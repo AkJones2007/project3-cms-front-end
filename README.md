@@ -130,7 +130,7 @@
 
 <h2> Wireframes </h2>
 <p>
-![alt tag](http://url/to/img.png)
+![CMS Wireframe](https://github.com/AkJones2007/project3-cms-front-end/blob/development/Project_3_wireframes.png "Project_3_wireframes.png")
 </p>
 
 <p><h3>Deployed front-end app:</h3> </p>
