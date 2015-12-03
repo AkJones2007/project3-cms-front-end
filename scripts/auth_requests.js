@@ -80,16 +80,23 @@ var ajaxCB = function (error, data) {
     return formDataObject;
   };
 
-$(document).ready(function(){
-
-  authRequest.currentUser(function(error, data) {
+  var logInCheck = function(){
+    authRequest.currentUser(function(error, data) {
     if(error || data.title === 'Nobody') {
       console.error(error);
+      $("#create-blog").hide();
+      $("#create-page").hide();
+      $(".admin-button").hide();
     } else {
       $('#welcome-message').html('Welcome ' + data.title.userName + '!');
       }
     });
+  }
 
+$(document).ready(function(){
+
+
+  logInCheck();
 
   $("#register").on("submit", function(event){
     event.preventDefault();
@@ -104,13 +111,7 @@ $(document).ready(function(){
       if(error) {
         console.error(error);
       } else {
-        authRequest.currentUser(function(error, data) {
-          if(error || data.title === 'Nobody') {
-            console.error(error);
-          } else {
-            $('#welcome-message').html('Welcome ' + data.title.userName + '!');
-          }
-        });
+        logInCheck();
       }
     });
   });
@@ -121,7 +122,9 @@ $(document).ready(function(){
       if(error){
         console.error(error);
       }
+
       $('#welcome-message').html("");
+      logInCheck();
     });
   });
 

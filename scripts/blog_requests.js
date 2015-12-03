@@ -92,15 +92,11 @@ var formDataToObject = function(form) {
   $("#list-blogs").on("click", function(event){
     event.preventDefault();
     blogRequest.getAll(function(error, data){
-    $("#display-pages-table").hide();
-    $("#showAllBlogTableBody").empty();
-    $("#display-blogs-table").show();
-    $("#one-blog").hide();
+    uxControl.listBlogs();
     var template = Handlebars.compile($("#showAllBlogHandlebar").html());
       $('#result').val(JSON.stringify(data, null, 4)); //logs to test box
       var newHTML = template({blogs: data.blogs});
       $("#showAllBlogTableBody").html(newHTML);
-
     });
   });
 
@@ -116,6 +112,7 @@ var formDataToObject = function(form) {
       $("#one-blog").empty();
       $("#display-blogs-table").hide();
       $("#one-blog").show();
+      logInCheck();
       var template = Handlebars.compile($("#show-one").html());
       $('#result').val(JSON.stringify(data, null, 4)); //logs to test box
       var newHTML = template(data.blogs);

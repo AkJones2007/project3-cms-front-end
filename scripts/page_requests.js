@@ -90,10 +90,7 @@ var formDataToObject = function(form) {
   $("#list-pages").on("click", function(event){
     event.preventDefault();
     pageRequest.getAll(function(error, data){
-    $("#display-blogs-table").hide();
-    $("#showAllPageTableBody").empty();
-    $("#display-pages-table").show();
-    $("#one-page").hide();
+    uxControl.listPages();
     var template = Handlebars.compile($("#showAllPageHandlebar").html());
       $('#result').val(JSON.stringify(data, null, 4)); //logs to test box
       var newHTML = template({pages: data.pages});
@@ -112,6 +109,7 @@ var formDataToObject = function(form) {
       $("#one-page").empty();
       $("#display-pages-table").hide();
       $("#one-page").show();
+      logInCheck();
       var template = Handlebars.compile($("#show-one-page").html());
       $('#result').val(JSON.stringify(data, null, 4)); //logs to test box
       var newHTML = template(data.pages);
