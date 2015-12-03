@@ -130,7 +130,7 @@ var formDataToObject = function(form) {
     blogRequest.create(credentials);
   });
 
-  // CLick on Edit Button
+  // CLick on Edit Button in single blog post
   $("#one-blog").on("click", '#edit-blog', function(event){
     event.preventDefault();
     $("#update-blog-div").show();
@@ -147,6 +147,7 @@ var formDataToObject = function(form) {
     });
   });
 
+  // click on the delete button in single blog post
   $("#one-blog").on("click", '#delete-blog', function(event){
     event.preventDefault();
     console.log($(this).data("id"));
@@ -154,7 +155,7 @@ var formDataToObject = function(form) {
     blogRequest.delete(id, function(){
 
       $("#one-blog").empty();
-      $("entire-body").show();
+      $("#entire-body").show();
     });
   });
 

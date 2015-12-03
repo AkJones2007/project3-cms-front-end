@@ -19,7 +19,6 @@ var authRequest = {
       },
       contentType: "application/json; charset=utf-8",
       data: JSON.stringify(credentials),
-      dataType: "json"
     }, ajaxCB);
   }, //end of register
 
@@ -32,7 +31,6 @@ var authRequest = {
       },
       contentType: "application/json; charset=utf-8",
       data: JSON.stringify(credentials),
-      dataType: "json"
     }, ajaxCB);
   },
 
@@ -42,7 +40,6 @@ var authRequest = {
        url: this.url + "/logout",
        contentType: "application/json; charset=utf-8",
       data: JSON.stringify(),
-      dataType: "json"
     }, callback);
   }
 };// end of authRequest
