@@ -1,6 +1,6 @@
 var authRequest = {
 
-  url : "https://aqueous-oasis-2361.herokuapp.com/",
+  url : "https://aqueous-oasis-2361.herokuapp.com",
 
   ajaxRequest : function(options, cb) {
     $.ajax(options).done(function(data, textStatus, jqxhr) {
