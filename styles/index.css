@@ -249,3 +249,17 @@ button:hover {
 thead {
   border-: none;
 }
+
+#one-blog {
+  margin-left: 20px;
+  padding: 0;
+  width: 60%;
+  float: left;
+  background-color: white;
+  padding: 0 20px 20px 20px;
+}
+
+#one-blog > p {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
