@@ -31,7 +31,7 @@ var authRequest = {
       },
       contentType: "application/json; charset=utf-8",
       data: JSON.stringify(credentials),
-    }, ajaxCB);
+    }, callback);
   },
 
   logout : function(callback) {
@@ -41,7 +41,20 @@ var authRequest = {
        contentType: "application/json; charset=utf-8",
       data: JSON.stringify(),
     }, callback);
+  },
+
+  // Find out who's logged in
+  currentUser: function(callback) {
+    this.ajaxRequest({
+      method: 'GET',
+      url: this.url + '/',
+      xhrFields: {
+       withCredentials: true
+      },
+      dataType: 'json'
+    }, callback);
   }
+
 };// end of authRequest
 
 var ajaxCB = function (error, data) {
@@ -75,7 +88,19 @@ $(document).ready(function(){
   $("#login").on("submit", function(event){
     event.preventDefault();
     var credentials = formDataToObject(this);
-    authRequest.login(credentials);
+    authRequest.login(credentials, function(error, data) {
+      if(error) {
+        console.error(error);
+      } else {
+        authRequest.currentUser(function(error, data) {
+          if(error || data.title === 'Nobody') {
+            console.error(error);
+          } else {
+            $('#welcome-message').html('Welcome ' + data.title.userName + '!');
+          }
+        });
+      }
+    });
   });
 
 
