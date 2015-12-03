@@ -14,27 +14,6 @@
   clear: both;
 }
 
-nav.navbar-default {
-  background-color: #4267B3;
-}
-
-.navbar-default .navbar-nav>li>a {
-  color: white;
-}
-
-.navbar-default .navbar-nav > .dropdown > a .caret {
-  border-bottom-color: white;
-  border-top-color: white;
-}
-
-#navbar-brand {
-  font-family: 'Lobster Two', cursive;
-  font-style: italic;
-  color: white;
-  font-size: 2.5em;
-  text-shadow: 2px 2px rgba(0, 0, 0, .5);
-}
-
 
 /*____BOOTSTRAP SIDEBAR_____*/
 body,html{
@@ -156,3 +135,106 @@ body,html{
     padding-left: 15px;
   }
 
+/* Custom CSS */
+body {
+  background-color: #B1C9FF;
+}
+
+nav.navbar-default {
+  background-color: #4267B3;
+  border: none;
+  border-radius: 0;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: white;
+  font-size: 1.2em;
+}
+
+.navbar-default .navbar-nav > .dropdown > a .caret {
+  border-bottom-color: white;
+  border-top-color: white;
+}
+
+#navbar-brand {
+  font-family: 'Lobster Two', cursive;
+  font-style: italic;
+  color: white;
+  font-size: 2.5em;
+  text-shadow: 2px 2px rgba(0, 0, 0, .5);
+}
+
+#create-blog {
+  float: left;
+  width: 40%;
+  padding: 0 25px;
+}
+
+#show-all-blog {
+  float: right;
+  width: 60%;
+  background-color: white;
+  padding: 0 20px;
+}
+
+#create-blog > input[type="text"] {
+  display: block;
+  width: 100%;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+#create-blog > textarea {
+  display: block;
+  width: 100%;
+  font-size: 1.2em;
+  height: 400px;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+#display-blogs-table {
+  width: 90%;
+}
+
+#create-blog > input[type="submit"] {
+  border: none;
+  font-size: 1.2em;
+  background-color: #FF6140;
+  color: white;
+
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff9984+1,ff6140+54 */
+  background: #ff9984; /* Old browsers */
+  background: -moz-linear-gradient(top,  #ff9984 1%, #ff6140 54%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #ff9984 1%,#ff6140 54%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #ff9984 1%,#ff6140 54%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9984', endColorstr='#ff6140',GradientType=0 ); /* IE6-9 */
+
+  border: 2px solid #FF6140;
+  border-radius: 5px;
+}
+
+#create-blog > input[type="submit"]:hover {
+  background: #ff9984;
+}
+
+button {
+  color: white;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff9984+1,ff6140+54 */
+  background: #ff9984; /* Old browsers */
+  background: -moz-linear-gradient(top,  #ff9984 1%, #ff6140 54%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #ff9984 1%,#ff6140 54%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #ff9984 1%,#ff6140 54%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9984', endColorstr='#ff6140',GradientType=0 ); /* IE6-9 */
+  border: 2px solid #FF6140;
+  border-radius: 5px;
+}
+
+button:hover {
+  background: #ff9984;
+}
+
+thead {
+  border-: none;
+}
