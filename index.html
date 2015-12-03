@@ -131,7 +131,6 @@
 </nav>
 
 
-
 <!-- ____________END OF BOOTSTRAP SIDEBAR____________________ -->
 
 <!--   <form id="register" class="forms">
@@ -151,45 +150,7 @@
 
 <!-- ___________LIST BLOG POSTS BUTTON__________ -->
 <!--   <button id="list-blogs" name="list" type="button">List Blog Posts</button> -->
-
-
-
-  <!-- End of Blog Forms -->
-  <!-- Page Forms -->
- <!-- <button id="list-pages" name="list" type="button">List Pages</button> -->
-
-
-
-
-<!--   <form id="show-one-page">
-  <input id = "one-page-view" class = "input" name = "id" type = "text" placeholder = "View
-  One Page">
-  <input type = "submit" value = "Show One Page">
-  </form>
-
-  <form id="create-page">
-    <input class="input" name="title" type="text" placeholder="Page Title">
-    <textarea class="input" name="content" placeholder="Page Content"></textarea>
-    <input type="submit" value="Create Page">
-  </form>
-
-  <form id="update-page">
-    <input class="input" name="title" type="text" placeholder="Page Title">
-    <textarea class="input" name="content" placeholder="Page Content"></textarea>
-    <input id="page-id" class="input" name="id" type="text" placeholder="Page ID">
-    <input type="submit" value="Update Page">
-    <input id="delete-page" name="delete" type="button" value="Delete Page Post">
-  </form> -->
-  <!-- end of Pages -->
-
-
-
-
-
-
   <!-- Handlebar Templates -->
-
-
 
   <!-- ________HANDLEBARS BLOGS TABLE _________-->
 
@@ -248,6 +209,60 @@
   </div>
 
 <!-- ____________________END OF BLOG DIV____________________ -->
+
+<!-- ____________________HANDLEBARS PAGES TABLE______________ -->
+
+<div id="display-pages-table">
+  <form id="create-page">
+    <input class="input" name="title" type="text" placeholder="Page Title">
+    <textarea class="input" name="content" placeholder="Page Content"></textarea>
+    <input type="submit" value="Create Page Post">
+  </form>
+
+  <div id = "show-all-page">
+    <table id="showAllPageTable" class = "table table-hover">
+      <thead>
+        <th> Page Title </th>
+        <th> Page Author </th>
+      </thead>
+      <tbody id = "showAllPageTableBody">
+      </tbody>
+    </table>
+
+    <script id = "showAllPageHandlebar" type = "text/x-handlebars-template">
+      {{#each pages}}
+        <tr>
+          <td>{{title}}</td>
+          <td>{{author}}</td>
+          <td><button class="show-page-button" data-id={{_id}}> Show Page </button> </td>
+        </tr>
+      {{/each}}
+    </script>
+
+  </div>
+</div>
+
+<!-- ___________END OF HANDLEBARS PAGE TABLE_____________ -->
+<!-- __________________DIV FOR ONE PAGE__________________ -->
+
+<div id="one-page" class="container-fluid">
+</div>
+
+  <script id="show-one-page" type = "text/x-handlebars-template">
+    <h2>{{title}}</h2>
+    <h3>{{content}}</h3>
+    <button id="edit-page" data-id={{_id}}>Edit</button>
+    <button id="delete-page" data-id={{_id}}>Delete</button>
+  </script>
+
+  <div id="update-page-div">
+    <form id="update-page">
+      <input class="input" name="title" type="text" placeholder="Page Title">
+      <textarea class="input" name="content" placeholder="Page Content"></textarea>
+      <input type="submit" value="Update Page">
+    </form>
+  </div>
+<!-- ____________________END OF Page DIV____________________ -->
 
 
 <div id="result-testing">

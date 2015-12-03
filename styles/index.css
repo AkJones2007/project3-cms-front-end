@@ -2,6 +2,14 @@
   width: 70%;
   float: left;
 }
+#display-pages-table {
+  width: 70%;
+  float: left;
+}
+#update-page, #update-blog{
+  width: 70%;
+  float: left;
+}
 #result-testing {
   clear: both;
 }

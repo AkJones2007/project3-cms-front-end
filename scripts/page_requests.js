@@ -10,20 +10,20 @@ var pageRequest = {
     });
   }, // end of ajaxRequest
 
-  getAll : function(){
+  getAll : function(callback){
     this.ajax({
       method : "GET",
       url: this.url + "/pages",
       dataType: "json"
-    }, ajaxCB);
+    }, callback);
   },
 
-  getOne : function(id){
+  getOne : function(id, callback){
     this.ajax({
       method: "GET",
       url: this.url + "/pages/" + id,
       dataType: "json"
-    }, ajaxCB);
+    }, callback);
   },
 
   create : function(credentials, callback){
@@ -36,7 +36,7 @@ var pageRequest = {
       contentType: "application/json; charset=utf-8",
       data: JSON.stringify(credentials),
       dataType: "json"
-    }, ajaxCB);
+    }, callback);
   },
 
   update : function(id, credentials, callback){
@@ -49,10 +49,10 @@ var pageRequest = {
       contentType: "application/json; charset=utf-8",
       data: JSON.stringify(credentials),
       dataType: "json"
-    }, ajaxCB);
+    }, callback);
   },
 
-  delete : function(id, credentials, callback){
+  delete : function(id, callback){
     this.ajax({
       method : "DELETE",
       url: this.url + "/pages/" + id,
@@ -61,10 +61,9 @@ var pageRequest = {
       },
       contentType: "application/json; charset=utf-8",
       dataType: "json"
-    }, ajaxCB);
+    }, callback);
   }
-
-}
+};
 
 var ajaxCB = function (error, data) {
     if (error) {
@@ -86,42 +85,101 @@ var formDataToObject = function(form) {
     return formDataObject;
   };
 
-
-$(document).ready(function(){
+ $(document).ready(function(){
 
   $("#list-pages").on("click", function(event){
     event.preventDefault();
-    pageRequest.getAll();
+    pageRequest.getAll(function(error, data){
+    $("#showAllPageTableBody").empty();
+    $("#display-pages-table").show();
+    $("#one-page").hide();
+    var template = Handlebars.compile($("#showAllPageHandlebar").html());
+      $('#result').val(JSON.stringify(data, null, 4)); //logs to test box
+      var newHTML = template({pages: data.pages});
+      $("#showAllPageTableBody").html(newHTML);
+
+    });
   });
 
-  $("#show-one-page").on("submit", function(event){
+  $("#showAllPageTableBody").on("click", function(event){
     event.preventDefault();
-    var id = $("#one-page-view").val();
-    pageRequest.getOne(id);
+    var id = $(event.target).data("id");
+    if(id === undefined){
+      return;
+    }
+    pageRequest.getOne(id, function(error, data){
+      $("#one-page").empty();
+      $("#display-pages-table").hide();
+      $("#one-page").show();
+      var template = Handlebars.compile($("#show-one-page").html());
+      $('#result').val(JSON.stringify(data, null, 4)); //logs to test box
+      var newHTML = template(data.pages);
+      $("#one-page").html(newHTML);
+    });
   });
 
   $("#create-page").on("submit", function(event){
     event.preventDefault();
     var credentials = formDataToObject(this);
-    pageRequest.create(credentials);
+    pageRequest.create(credentials, function(error, data){
+    pageRequest.getAll(function(error, data){
+      $("#showAllPageTableBody").empty();
+      $("#display-pages-table").show();
+      $("#one-page").hide();
+      var template = Handlebars.compile($("#showAllPageHandlebar").html());
+      $('#result').val(JSON.stringify(data, null, 4)); //logs to test box
+      var newHTML = template({pages: data.pages});
+      $("#showAllPageTableBody").html(newHTML);
+      });
+    });
   });
+
+  // CLick on Edit Button in single page post
+  $("#one-page").on("click", '#edit-page', function(event){
+    event.preventDefault();
+    $("#update-page-div").show();
+  });
+
 
   $("#update-page").on("submit", function(event){
     event.preventDefault();
     var credentials = formDataToObject(this);
-    var id = $("#page-id").val();
-    pageRequest.update(id, credentials)
-  })
+    var id = $("#edit-page").data("id");
+    pageRequest.update(id, credentials, function(error, data){
+      $("#one-page").empty();
+      $("#update-page-div").hide();
+      $("#entire-body").show();
+      pageRequest.getAll(function(error, data){
+        $("#showAllPageTableBody").empty();
+        $("#display-pages-table").show();
+        $("#one-page").hide();
+        var template = Handlebars.compile($("#showAllPageHandlebar").html());
+        $('#result').val(JSON.stringify(data, null, 4)); //logs to test box
+        var newHTML = template({pages: data.pages});
+        $("#showAllPageTableBody").html(newHTML);
+      });
+    });
+  });
 
-  $("#delete-page").on("click", function(event){
+  // click on the delete button in single page
+  $("#one-page").on("click", '#delete-page', function(event){
     event.preventDefault();
-    var id = $("#page-id").val();
-    pageRequest.delete(id);
-  })
+    console.log($(this).data("id"));
+    var id = $(this).data("id");
+    pageRequest.delete(id, function(){
+      $("#one-page").empty();
+      $("#entire-body").show();
+      pageRequest.getAll(function(error, data){
+    $("#showAllPageTableBody").empty();
+    $("#display-pages-table").show();
+    $("#one-page").hide();
+    var template = Handlebars.compile($("#showAllPageHandlebar").html());
+      $('#result').val(JSON.stringify(data, null, 4)); //logs to test box
+      var newHTML = template({pages: data.pages});
+      $("#showAllPageTableBody").html(newHTML);
+      });
+    });
+  });
 
 
-
-
-
-
-}) //end of document.ready
+}); //end of document.ready
