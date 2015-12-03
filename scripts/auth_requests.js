@@ -38,7 +38,10 @@ var authRequest = {
     this.ajaxRequest({
        method: "DELETE",
        url: this.url + "/logout",
-       contentType: "application/json; charset=utf-8",
+       xhrFields: {
+       withCredentials: true
+      },
+      contentType: "application/json; charset=utf-8",
       data: JSON.stringify(),
     }, callback);
   },
@@ -79,6 +82,15 @@ var ajaxCB = function (error, data) {
 
 $(document).ready(function(){
 
+  authRequest.currentUser(function(error, data) {
+    if(error || data.title === 'Nobody') {
+      console.error(error);
+    } else {
+      $('#welcome-message').html('Welcome ' + data.title.userName + '!');
+      }
+    });
+
+
   $("#register").on("submit", function(event){
     event.preventDefault();
     var credentials = formDataToObject(this);
@@ -100,6 +112,16 @@ $(document).ready(function(){
           }
         });
       }
+    });
+  });
+
+  $('#logout').on('click', function(event) {
+    event.preventDefault();
+    authRequest.logout(function(error, data){
+      if(error){
+        console.error(error);
+      }
+      $('#welcome-message').html("");
     });
   });
 
