@@ -93,42 +93,26 @@
 
 <h2> user stories</h2>
 <p>
-  BASIC USER STORIES
-Pages
-As an admin: (Person who can edit and add pages)
-Use generic template to create a new page
-Add text content to the page
-add a photo to the page
-add a navigation menu to the page
-specify a page as a plog
-Edit a page
-Delete a page
-View or list a page
-See when a page was last edited.
+  <h3>BASIC USER STORIES</h3>
+    <h4> Pages</h4>
+    <ul>
+      <li>As an admin: (Person can edit and add pages)</li>
+      <li> Add text content to the page </li>
+      <li> Edit a page </li>
+      <li> Delete a page </li>
+      <li> View or list a page </li>
+      <li> See when a page was last edited.</li>
+    </ul>
 
-
-Blog Posts
-As an admin: I can:
-Use a generic template to create a new post
-Create a new post
-Add text comment to the post
-Add photos to the post
-Format the text
-Add limits to the post
-Edit a post
-Delete Post
-View a list of posts
-See when a post was created/edited
-
-STRETCH GOAL USER STORIES
-As an admin, I can:
-Create a stylesheet
-Change the background color
-Add a background image
-set the typography
-Have a way to to make a blog part of a page.
-add a carousel to the page
-select a text font
+    <h4> Blog Posts</h4>
+    <ul>
+      <li>As an admin: (Person can edit and add blogs)</li>
+      <li> Add text content to the blog </li>
+      <li> Edit a blog </li>
+      <li> Delete a blog </li>
+      <li> View or list a blog </li>
+      <li> See when a blog was last edited.</li>
+    </ul>
 
 </p>
 <h2> ERD - data models used in this app</h2>
@@ -146,9 +130,10 @@ select a text font
 
 <h2> Wireframes </h2>
 <p>
-
+![alt tag](http://url/to/img.png)
 </p>
-<p> A link to the deployed front-end app: </p>
-<p> A link to the repository of this app's back-end:
-  https://github.com/gracenjambi/project3-cms-back-end
+
+<p><h3>Deployed front-end app:</h3> </p>
+
+<p><h3>Repository of this app's back-end:</h3> https://github.com/gracenjambi/project3-cms-back-end
 </p>
