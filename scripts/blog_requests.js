@@ -1,6 +1,6 @@
 var blogRequest = {
 
-  url : "https://aqueous-oasis-2361.herokuapp.com/",
+  url : "https://aqueous-oasis-2361.herokuapp.com",
 
   ajax : function(options, cb) {
     $.ajax(options).done(function(data, textStatus, jqxhr) {
