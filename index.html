@@ -190,7 +190,7 @@
 
   <script id="show-one" type = "text/x-handlebars-template">
     <h2>{{title}}</h2>
-    <p>{{content}}</p>
+    <p>{{{content}}}</p>
     <h6>{{date}}</h6>
     <button id="edit-blog" class="admin-button" data-id={{_id}}>Edit</button>
     <button id="delete-blog" class="admin-button" data-id={{_id}}>Delete</button>
@@ -247,7 +247,7 @@
   <script id="show-one-page" type = "text/x-handlebars-template">
     <h2>{{title}}</h2>
     <hr>
-    <p>{{content}}</p>
+    <p>{{{content}}}</p>
     <button id="edit-page" class="admin-button" data-id={{_id}}>Edit</button>
     <button id="delete-page" class="admin-button" data-id={{_id}}>Delete</button>
   </script>
