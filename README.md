@@ -132,7 +132,7 @@
 
 ![CMS Wireframe](Project_3_wireframes.png)
 
-<p><h3>Deployed front-end app:</h3> </p>
+<p><h3>Deployed front-end app:</h3> </p>http://akjones2007.github.io/project3-cms-front-end/
 
 <p><h3>Repository of this app's back-end:</h3> https://github.com/gracenjambi/project3-cms-back-end
 </p>
